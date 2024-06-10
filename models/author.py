@@ -50,3 +50,4 @@ class Author:
         connection.close()
         return magazines
 
+
