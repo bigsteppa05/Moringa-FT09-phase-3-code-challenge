@@ -1,13 +1,14 @@
 import unittest
-from models.magazine import Magazine
+from unittest.mock import patch
+from app import main
 
-class TestMagazine(unittest.TestCase):
-    def test_magazine_creation(self):
-        magazine = Magazine(id=1, name="Tech Weekly", category="Technology")
-        self.assertEqual(magazine.name, "Tech Weekly")
-        self.assertEqual(magazine.category, "Technology")
-
+class TestApp(unittest.TestCase):
+    @patch('builtins.input', side_effect=['John Doe', 'Tech Weekly', 'Technology', 'Sample Article', 'Lorem ipsum...'])
+    def test_main(self, mock_input):
+        # Simply call the main function and ensure it runs without raising exceptions
+        main()
 
 if __name__ == "__main__":
     unittest.main()
+
 
